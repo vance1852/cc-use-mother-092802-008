@@ -33,3 +33,17 @@ class ConflictError(DomainError):
 
     code = "conflict"
     status = 409
+
+
+class StateError(DomainError):
+    """业务对象当前状态不允许该操作。"""
+
+    code = "invalid_state"
+    status = 409
+
+
+class BudgetExceeded(DomainError):
+    """承诺占用超过可用额度且没有有效例外授权。"""
+
+    code = "budget_exceeded"
+    status = 422
